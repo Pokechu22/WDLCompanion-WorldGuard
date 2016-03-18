@@ -25,12 +25,13 @@ public class WorldGuardRangeGroupType implements
 		}
 		if (!config.isSet("ownershipType")) {
 			warnings.add("'ownershipType' is not specified!  The default, " +
-					"OWNER_OR_MEMBER (either owner or member), will be used.");
+					"any (either owner or member), will be used.");
 		} else if (!config.isString("ownershipType")
 				|| !(OwnershipType.NAMES.contains(config
-						.getString("ownershipType").toUpperCase()))) {
-			errors.add("'ownershipType' must be a String with one of these " + 
-					"values: " + OwnershipType.NAMES);
+						.getString("ownershipType")))) {
+			errors.add("'ownershipType' must be a String with one of these " +
+					"values: " + OwnershipType.NAMES + ".  (Currently set " + 
+					"to '" + config.getString("ownershipType") + "')");
 			
 			isValidConfig = false;
 		}
@@ -42,7 +43,7 @@ public class WorldGuardRangeGroupType implements
 	public WorldGuardRangeProducer createRangeProducer(IRangeGroup group,
 			ConfigurationSection config) {
 		return new WorldGuardRangeProducer(group, 
-				OwnershipType.match(config.getString("ownershipType")),
+				OwnershipType.match(config.getString("ownershipType", "any")),
 				config.getBoolean("preservePolygons", false));
 	}
 

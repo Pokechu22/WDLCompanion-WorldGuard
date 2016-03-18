@@ -11,19 +11,19 @@ import com.sk89q.worldguard.LocalPlayer;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 
 public enum OwnershipType {
-	OWNER_OR_MEMBER {
+	OWNER_OR_MEMBER("ownerOrMember", "any") {
 		@Override
 		public boolean has(LocalPlayer player, ProtectedRegion region) {
 			return region.isMember(player);
 		}
 	},
-	OWNER_ONLY {
+	OWNER_ONLY("owner", "ownerOnly") {
 		@Override
 		public boolean has(LocalPlayer player, ProtectedRegion region) {
 			return region.isOwner(player);
 		}
 	},
-	MEMBER_ONLY {
+	MEMBER_ONLY("member", "memberOnly") {
 		@Override
 		public boolean has(LocalPlayer player, ProtectedRegion region) {
 			return region.isMemberOnly(player);
@@ -71,7 +71,7 @@ public enum OwnershipType {
 	 * @return the type, or null if it can't be found.
 	 */
 	public static OwnershipType match(String name) {
-		return BY_ALIAS.get(name);
+		return BY_ALIAS.get(name.toUpperCase());
 	}
 	
 	static {
@@ -79,7 +79,7 @@ public enum OwnershipType {
 		Map<String, OwnershipType> byAlias = new HashMap<>();
 		for (OwnershipType type : values()) {
 			for (String alias : type.aliases) {
-				names.add(alias.toUpperCase());
+				names.add(alias);
 				byAlias.put(alias.toUpperCase(), type);
 			}
 		}

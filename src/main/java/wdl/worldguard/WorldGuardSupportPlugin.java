@@ -1,4 +1,4 @@
-package wdl.worldgaurd;
+package wdl.worldguard;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

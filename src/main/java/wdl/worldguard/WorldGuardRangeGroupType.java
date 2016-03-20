@@ -1,4 +1,4 @@
-package wdl.worldgaurd;
+package wdl.worldguard;
 
 import java.util.List;
 

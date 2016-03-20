@@ -1,5 +1,5 @@
 name: WorldGuard_support_for_WDLCompanion
-main: wdl.worldgaurd.WorldGuardSupportPlugin
+main: wdl.worldguard.WorldGuardSupportPlugin
 version: 1.0.0
 author: Pokechu22
 depend: [WDLCompanion, WorldGuard]

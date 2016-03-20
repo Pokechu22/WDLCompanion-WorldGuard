@@ -2,9 +2,9 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>pokechu22.plugins</groupId>
   <artifactId>WDLCompanionWorldGuardSupport</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <name>WorldGuard support for WDLCompanion</name>
-  <description>Provides WDLCompanion chunk overrides for WorldGuard regions.</description>
+  <description>Adds a ChunkOverride type, 'Owned WorldGuard regions', which allows a player to download in WorldGuard regions they own.</description>
   <build>
         <plugins>
             <plugin>
